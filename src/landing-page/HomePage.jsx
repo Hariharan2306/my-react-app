@@ -65,11 +65,37 @@ const HomePage = (props) => {
     <>
       <Card
         style={{
-          height: "100vh",
+          // height: "100vh",
           borderRadius: 0,
           padding: "10px 20px 10px 20px",
         }}
       >
+        {allImages?.map((item) => {
+          return (
+            <Card
+              sx={{ width: "30%", display: " inline-grid", margin: "15px" }}
+            >
+              <Card
+                sx={{
+                  //   width: "80%",
+                  height: "226px",
+                  display: " inline-grid",
+                  //   margin: "12px",
+                  margin: "16px auto",
+                  width: "95%",
+                  padding: "0px",
+                }}
+              >
+                <img
+                  src={`data:image/jpeg;base64,${item.base64Data}`}
+                  alt="Uploaded"
+                  style={{ width: "100%", height: "300px" }}
+                />
+              </Card>
+              <p>Hellow</p>
+            </Card>
+          );
+        })}
         <form>
           <Card>
             <CardHeader title="Upload Pictures" />
@@ -87,6 +113,7 @@ const HomePage = (props) => {
                 </FormGroup>
               </div>
             </CardContent>
+
             <CardActions>
               <Button
                 //   className={classes.fab}
@@ -112,17 +139,6 @@ const HomePage = (props) => {
           </Card>
         </form>
       </Card>
-      {allImages?.map((item) => {
-        return (
-          <Card>
-            <img
-              src={`data:image/jpeg;base64,${item.base64Data}`}
-              alt="Uploaded"
-              style={{ width: "100%", height: "400px" }}
-            />
-          </Card>
-        );
-      })}
     </>
   );
 };
