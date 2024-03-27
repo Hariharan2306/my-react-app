@@ -4,6 +4,8 @@ import LandigPage from "./landing-page/LandigPage";
 import ForumPage from "./landing-page/ForumPage";
 import HomePage from "./landing-page/HomePage";
 import LoginPage from "./Login";
+import Drivers from "./components/Drivers";
+import Login from "./LoginPage/Login";
 
 function App() {
   return (
@@ -11,8 +13,9 @@ function App() {
       <Suspense>
         <LandigPage />
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/travel-forum" element={<ForumPage />} />
+          <Route path="/drivers" element={<Drivers />} />
           <Route path="/landing-page" element={<HomePage />} />
         </Routes>
       </Suspense>

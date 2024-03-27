@@ -4,9 +4,12 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { makeStyles } from "@mui/styles";
 import { get } from "lodash";
+import { useNavigate } from "react-router";
 
 export default function DropDown(props) {
+  // eslint-disable-next-line react/prop-types
   const { options } = props;
+  const navigate = useNavigate();
   const [service, setServices] = React.useState("");
 
   const useStyles = makeStyles(() => ({
@@ -28,10 +31,10 @@ export default function DropDown(props) {
     setServices(value);
     switch (value) {
       case "drivers":
-        history.push("/drivers");
+        navigate("/drivers");
         break;
-      case "users":
-        history.push("/users");
+      case "":
+        navigate("landing-page");
         break;
       default:
         break;
@@ -47,6 +50,7 @@ export default function DropDown(props) {
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}
         >
+          {/*  eslint-disable-next-line react/prop-types*/}
           {options.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
