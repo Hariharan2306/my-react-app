@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandigPage from "./landing-page/LandigPage";
-import ForumPage from "./landing-page/forumPage";
+import ForumPage from "./landing-page/ForumPage";
 import LoginPage from "./Login";
 
 function App() {

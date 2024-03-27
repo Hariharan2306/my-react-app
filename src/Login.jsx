@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { TextField, Button, Container, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from "./API/Login/selector";
-import { isEmpty } from "lodash";
+import isEmpty from "lodash/isEmpty";
 import { useNavigate } from "react-router-dom";
 import { login } from "./API/Login/thunk";
 
