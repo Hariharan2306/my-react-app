@@ -1,15 +1,17 @@
 import { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandigPage from "./landing-page/LandigPage";
+import ForumPage from "./landing-page/forumPage";
 import LoginPage from "./Login";
 
 function App() {
   return (
     <Router>
       <Suspense>
+        <LandigPage />
         <Routes>
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/landing-page" element={<LandigPage />} />
+          <Route path="/travel-forum" element={<ForumPage />} />
         </Routes>
       </Suspense>
     </Router>

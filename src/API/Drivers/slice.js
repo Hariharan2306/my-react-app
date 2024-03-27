@@ -8,13 +8,13 @@ const DriversSlice = createSlice({
   name: "Drivers",
   initialState: initialState,
   reducers: {
-    fetchDriversRequest: (state) => {
+    postDriversRequest: (state) => {
       state.loading = true;
     },
-    fetchDriversSuccess: (state, action) => {
+    postDriversSuccess: (state, action) => {
       state.Drivers = action.payload;
     },
-    fetchDriversFailure: (state, action) => {
+    postDriversFailure: (state, action) => {
       state.error = action.payload;
     },
   },
