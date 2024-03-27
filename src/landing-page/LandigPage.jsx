@@ -8,7 +8,6 @@ const LandigPage = () => {
 
   useEffect(() => {
     dispatch(fetchApprovalRequesterData(1, 10, 1));
-    dispatch(postUserLogin("Godwin", "admin"));
     console.log("LandigPage");
   }, []);
   return (
