@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandigPage from "./landing-page/LandigPage";
-import ForumPage from "./landing-page/forumPage";
+import ForumPage from "./landing-page/ForumPage";
+import HomePage from "./landing-page/HomePage";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <LandigPage />
         <Routes>
           <Route path="/travel-forum" element={<ForumPage />} />
+          <Route path="/landing-page" element={<HomePage />} />
         </Routes>
       </Suspense>
     </Router>
