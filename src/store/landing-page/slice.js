@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   approvalRequesters: [],
+  successMessage: "",
+  appImages: [],
 };
 
 const landingPageSlice = createSlice({
@@ -11,8 +13,22 @@ const landingPageSlice = createSlice({
     fetchapprovalRequesterSuccess: (state, action) => {
       state.approvalRequesters = action.payload;
     },
+    postImageSuccess: (state, action) => {
+      state.successMessage = action.payload;
+    },
+    postImageFailure: (state, action) => {
+      state.failureMessage = action.payload;
+    },
+    getAppImages: (state, action) => {
+      state.appImages = action.payload;
+    },
   },
 });
 
-export const { fetchapprovalRequesterSuccess } = landingPageSlice.actions;
+export const {
+  fetchapprovalRequesterSuccess,
+  postImageSuccess,
+  postImageFailure,
+  getAppImages,
+} = landingPageSlice.actions;
 export default landingPageSlice.reducer;

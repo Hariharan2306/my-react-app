@@ -2,16 +2,16 @@ import React from "react";
 import { Box, Typography, TextField, Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { isEmpty } from "lodash";
+import isEmpty from "lodash/isEmpty";
 import { useNavigate } from "react-router-dom";
-import { loginSuccess } from "../API/Login/selector";
 import { login } from "../API/Login/thunk";
 import { postUserLogin } from "../store/userLogin/thunk";
+import { isLogin } from "../store/userLogin/selector";
 const LoginForm = () => {
   const [emailId, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const { loginResponce } = useSelector(loginSuccess);
+  const loginResponce = useSelector(isLogin);
   const navigate = useNavigate();
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -25,6 +25,7 @@ const LoginForm = () => {
       navigate("/landing-page");
     }
   }, [loginResponce]);
+  console.log(loginResponce);
 
   const handleSubmit = () => {
     event.preventDefault();

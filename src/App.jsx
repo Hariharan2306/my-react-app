@@ -2,7 +2,8 @@ import { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandigPage from "./landing-page/LandigPage";
 import ForumPage from "./landing-page/ForumPage";
-import LoginPage from "./LoginPage/Login";
+import HomePage from "./landing-page/HomePage";
+import Login from "./LoginPage/Login";
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
       <Suspense>
         <LandigPage />
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/travel-forum" element={<ForumPage />} />
+          <Route path="/landing-page" element={<HomePage />} />
         </Routes>
       </Suspense>
     </Router>
