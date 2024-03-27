@@ -1,0 +1,39 @@
+/* RedNavbar.css */
+.navbar {
+  background-color: green; /* Red background color */
+  color: #ffffff; /* White text color */
+  padding: 15px 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Display navigation options horizontally */
+}
+
+.nav-links li {
+  margin-left: 20px; /* Add space between navigation options */
+}
+
+.nav-links li:first-child {
+  margin-left: 0; /* Remove margin for the first navigation option */
+}
+
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+}
