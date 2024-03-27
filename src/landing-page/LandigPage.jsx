@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { postUserLogin } from "../store/userLogin/thunk";
 import "../styles/landingPage.css";
 import logo from "../assets/map-location_14250066.png";
+import DropDown from "../components/dropdown";
+import { servicesDropDown } from "../config/constants";
 
 const LandigPage = () => {
   const dispatch = useDispatch();
@@ -36,7 +38,7 @@ const LandigPage = () => {
             <li>
               <a href="#">About</a>
             </li>
-            <li className="dropdown" onClick={toggleDropdown}>
+            {/* <li className="dropdown" onClick={toggleDropdown}>
               <a href="#" className="dropbtn">
                 Services
               </a>
@@ -47,6 +49,9 @@ const LandigPage = () => {
                   <a href="#">Service 3</a>
                 </div>
               )}
+            </li> */}
+            <li>
+              <DropDown options={servicesDropDown} />
             </li>
             <li>
               <a href="/travel-forum">Forum</a>
