@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Card,
@@ -11,9 +11,9 @@ import {
 } from "@mui/material";
 import get from "lodash/get";
 import FileUpload from "../Pages/FileUpload";
-import { postImage } from "../store/landing-page/thunk";
+import { getImages, postImage } from "../store/landing-page/thunk";
 import { useDispatch, useSelector } from "react-redux";
-import { isImagePosted } from "../store/landing-page/selector";
+import { allAppImages, isImagePosted } from "../store/landing-page/selector";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = (props) => {
@@ -22,6 +22,8 @@ const HomePage = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const success = useSelector(isImagePosted);
+  const [allBusImages, setAllBusImages] = useState([]);
+  const allImages = useSelector(allAppImages);
 
   const onCancel = () => {
     // setBase64Data("");
@@ -32,6 +34,10 @@ const HomePage = (props) => {
       navigate("/landing-page");
     }
   }, [success]);
+
+  useEffect(async () => {
+    dispatch(getImages());
+  }, []);
 
   const handleSubmit = async (event) => {
     const file = event.target.files[0]; // Access the file object from event.target.files
@@ -54,57 +60,70 @@ const HomePage = (props) => {
     event.preventDefault();
     dispatch(postImage({ base64Data, fileName, operatorName: fileName }));
   };
-
+  console.log(allImages, "allImages");
   return (
-    <Card
-      style={{
-        height: "100vh",
-        borderRadius: 0,
-        padding: "10px 20px 10px 20px",
-      }}
-    >
-      <form>
-        <Card>
-          <CardHeader title="Upload Pictures" />
-          <CardContent>
-            <div>
-              <FormGroup>
-                <input
-                  type="file"
-                  className="custom-file-input"
-                  id={"inputGroupFileAddon01"}
-                  accept=".jpg, .jpeg, .png"
-                  aria-describedby="inputGroupFileAddon01"
-                  onChange={handleSubmit}
-                />
-              </FormGroup>
-            </div>
-          </CardContent>
-          <CardActions>
-            <Button
-              //   className={classes.fab}
-              type="reset"
-              onClick={() => onCancel()}
-              color="secondary"
-            >
-              Cancel
-            </Button>
+    <>
+      <Card
+        style={{
+          height: "100vh",
+          borderRadius: 0,
+          padding: "10px 20px 10px 20px",
+        }}
+      >
+        <form>
+          <Card>
+            <CardHeader title="Upload Pictures" />
+            <CardContent>
+              <div>
+                <FormGroup>
+                  <input
+                    type="file"
+                    className="custom-file-input"
+                    id={"inputGroupFileAddon01"}
+                    accept=".jpg, .jpeg, .png"
+                    aria-describedby="inputGroupFileAddon01"
+                    onChange={handleSubmit}
+                  />
+                </FormGroup>
+              </div>
+            </CardContent>
+            <CardActions>
+              <Button
+                //   className={classes.fab}
+                type="reset"
+                onClick={() => onCancel()}
+                color="secondary"
+              >
+                Cancel
+              </Button>
 
-            <Button
-              //   className={classes.fab}
-              variant="extended"
-              color="primary"
-              type="submit"
-              onClick={(event) => {
-                submitImage(event);
-              }}
-            >
-              Save
-            </Button>
-          </CardActions>
-        </Card>
-      </form>
-    </Card>
+              <Button
+                //   className={classes.fab}
+                variant="extended"
+                color="primary"
+                type="submit"
+                onClick={(event) => {
+                  submitImage(event);
+                }}
+              >
+                Save
+              </Button>
+            </CardActions>
+          </Card>
+        </form>
+      </Card>
+      {allImages?.map((item) => {
+        return (
+          <Card>
+            <img
+              src={`data:image/jpeg;base64,${item.base64Data}`}
+              alt="Uploaded"
+              style={{ width: "100%", height: "400px" }}
+            />
+          </Card>
+        );
+      })}
+    </>
   );
 };
 export default HomePage;

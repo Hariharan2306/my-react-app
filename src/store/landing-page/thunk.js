@@ -1,6 +1,7 @@
 import api from "../../api";
 import {
   fetchapprovalRequesterSuccess,
+  getAppImages,
   postImageFailure,
   postImageSuccess,
 } from "./slice";
@@ -27,4 +28,17 @@ export const postImage = (data) => async (dispatch) => {
   } catch (error) {
     dispatch(postImageFailure(error));
   }
+};
+
+export const getImages = () => {
+  return async (dispatch) => {
+    try {
+      const response = await api.get(`/access-approval/get-image`);
+      if (response.status === 200) {
+        dispatch(getAppImages(response.data.data));
+      }
+    } catch (error) {
+      dispatch(postImageFailure(error));
+    }
+  };
 };
