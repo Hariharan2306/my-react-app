@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import businessRole from "../store/landing-page/slice";
+import landingPageReducer from "../store/landing-page/slice";
 
 export const store = configureStore({
   reducer: {
     BusinessRole: businessRole,
+    landingPage: landingPageReducer,
   },
 });
 

@@ -11,7 +11,6 @@ const ForumPage = () => {
   return (
     <Card
       style={{
-        height: "100vh",
         borderRadius: 0,
         padding: "10px 20px 10px 20px",
       }}
@@ -56,6 +55,17 @@ const ForumPage = () => {
         <span style={{ fontWeight: "bold", color: "#4267B2" }}>Kerala</span>
       </div>
       <img src={kawasaki} style={{ width: "100%", height: "400px" }}></img>
+      <CardActions disableSpacing>
+        <IconButton aria-label="like">
+          <ThumbUpIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
+        <IconButton aria-label="comment">
+          <CommentIcon />
+        </IconButton>
+      </CardActions>
     </Card>
   );
 };

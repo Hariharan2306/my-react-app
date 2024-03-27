@@ -1,5 +1,9 @@
 import api from "../../api";
-import { fetchapprovalRequesterSuccess } from "./slice";
+import {
+  fetchapprovalRequesterSuccess,
+  postImageFailure,
+  postImageSuccess,
+} from "./slice";
 
 export const fetchApprovalRequesterData =
   (pageSize, id, pageNumber) => async (dispatch) => {
@@ -13,3 +17,14 @@ export const fetchApprovalRequesterData =
       dispatch(fetchapprovalRequesterSuccess(error));
     }
   };
+
+export const postImage = (data) => async (dispatch) => {
+  try {
+    const response = await api.post(`/access-approval/upload-image`, data);
+    if (response.status === 200) {
+      dispatch(postImageSuccess(response.data.flag));
+    }
+  } catch (error) {
+    dispatch(postImageFailure(error));
+  }
+};
