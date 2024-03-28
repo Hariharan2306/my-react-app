@@ -2,10 +2,16 @@ import * as React from "react";
 import "../styles/scroll-box.css";
 import { Paper } from "@mui/material";
 import { get } from "lodash";
+import { getAllDrivers } from "../API/Drivers/thunk";
+import { useDispatch, useSelector } from "react-redux";
+import { allDriversSelector } from "../API/Drivers/selector";
 
 export default function Drivers() {
   const drivers = ["abc", "xyz", "pqr"];
   const [dataView, setDataView] = React.useState(0);
+  const dispatch = useDispatch();
+  const allDrivers = useSelector(allDriversSelector);
+
   const randomNames = [
     { name: "Alice", age: "20", sex: "female" },
     { name: "Bob", age: 31, sex: "female" },
@@ -19,6 +25,10 @@ export default function Drivers() {
     { name: "Jessica", age: 36, sex: "female" },
   ];
 
+  React.useEffect(() => {
+    dispatch(getAllDrivers());
+  }, [dataView]);
+  console.log(allDrivers, "allDrivers");
   return (
     <div style={{ margin: "20px" }}>
       <div className="scrollable-container">
