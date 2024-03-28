@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import isEmpty from "lodash/isEmpty";
 import { useNavigate } from "react-router-dom";
-import { login } from "../API/Login/thunk";
 import { postUserLogin } from "../store/userLogin/thunk";
 import { isLogin } from "../store/userLogin/selector";
 const LoginForm = () => {
@@ -22,12 +21,12 @@ const LoginForm = () => {
   };
   useEffect(() => {
     if (!isEmpty(loginResponce) && loginResponce === "Successfully logedin") {
-      navigate("/landing-page");
+      navigate("/new-landing-page");
     }
   }, [loginResponce]);
   console.log(loginResponce);
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(postUserLogin({ emailId, password }));
   };
