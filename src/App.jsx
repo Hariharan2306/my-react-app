@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -18,6 +18,12 @@ import About from "./landing-page/About";
 import AddMechanic from "./landing-page/AddMechanic";
 
 function App() {
+  useEffect(() => {
+    document.body.style.backgroundColor = "#f0f0f0";
+    return () => {
+      document.body.style.backgroundColor = "";
+    };
+  }, []);
   return (
     <Router>
       <Suspense fallback={<div>Loading...</div>}>

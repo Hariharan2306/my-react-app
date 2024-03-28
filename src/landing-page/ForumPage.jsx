@@ -7,43 +7,97 @@ import ShareIcon from "@mui/icons-material/Share";
 import CommentIcon from "@mui/icons-material/Comment";
 import kawasaki from "../assets/kawasaki.avif";
 
+const forum = [
+  {
+    name: "Nikitha",
+    reson: "is Travelling to",
+    goingTo: "Delhi",
+    slate: " 8 slots left",
+    img: muscat,
+    description:
+      "Book your tickets now to explore the stunning scenaries of Delhi",
+  },
+  {
+    name: "",
+    reson: "is Seeking Help in",
+    goingTo: "Kerala",
+    slate: "",
+    img: kawasaki,
+    description: "",
+  },
+];
+
 const ForumPage = () => {
   return (
     <Card
       style={{
         borderRadius: 0,
-        padding: "10px 20px 10px 20px",
+        padding: "29px 66px",
       }}
     >
       <div style={{ fontSize: 20, fontWeight: "bold", color: "#4267B2" }}>
         {" "}
         Traveller's Forum
       </div>
-      <div style={{ marginTop: 20 }}>
-        <span>
-          <img src={people} style={{ width: "20px", height: "20px" }}></img>
-        </span>{" "}
-        <span style={{ fontWeight: "bold", color: "#4267B2" }}> Nikitha</span>{" "}
-        is Travelling to{" "}
-        <span>
-          <img src={location} style={{ width: "20px", height: "20px" }}></img>
-        </span>{" "}
-        <span style={{ fontWeight: "bold", color: "#4267B2" }}>Delhi</span> - 8
-        slots left
-      </div>
-      <img src={muscat} style={{ width: "100%", height: "400px" }}></img>
-      <CardActions disableSpacing>
-        <IconButton aria-label="like">
-          <ThumbUpIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <IconButton aria-label="comment">
-          <CommentIcon />
-        </IconButton>
-      </CardActions>
-      <div style={{ marginTop: 20 }}>
+      {forum.map((item) => (
+        <>
+          <Card
+            style={{
+              padding: "2px 25px",
+              boxShadow: " 10px 9px 8px -10px",
+              width: "96%",
+              display: "flex",
+              margin: "20px",
+            }}
+          >
+            <div>
+              <div style={{ marginTop: 20 }}>
+                <span>
+                  <img src={people} style={{ width: "20px", height: "20px" }} />
+                </span>{" "}
+                <span style={{ fontWeight: "bold", color: "#4267B2" }}>
+                  {" "}
+                  {item.name}
+                </span>{" "}
+                {item.reson}{" "}
+                <span>
+                  <img
+                    src={location}
+                    style={{ width: "20px", height: "20px" }}
+                  />
+                </span>{" "}
+                <span style={{ fontWeight: "bold", color: "#4267B2" }}>
+                  {item.goingTo}
+                </span>{" "}
+                {item.slate}
+              </div>
+              <img
+                src={item.img}
+                style={{
+                  width: "900px",
+                  height: "490px",
+                  margin: "10px",
+                }}
+              ></img>
+              <CardActions disableSpacing>
+                <IconButton aria-label="like">
+                  <ThumbUpIcon />
+                </IconButton>
+                <IconButton aria-label="share">
+                  <ShareIcon />
+                </IconButton>
+                <IconButton aria-label="comment">
+                  <CommentIcon />
+                </IconButton>
+              </CardActions>
+            </div>
+            <div style={{ margin: "auto", padding: "95px" }}>
+              <p>{item.description}</p>
+            </div>
+          </Card>
+        </>
+      ))}
+      {/* <div style={{ marginTop: 20 }}>
         <span>
           <img src={people} style={{ width: "20px", height: "20px" }}></img>
         </span>{" "}
@@ -54,7 +108,7 @@ const ForumPage = () => {
         </span>{" "}
         <span style={{ fontWeight: "bold", color: "#4267B2" }}>Kerala</span>
       </div>
-      <img src={kawasaki} style={{ width: "100%", height: "400px" }}></img>
+      <img src={kawasaki} style={{ width: "60%", height: "490px" }}></img>
       <CardActions disableSpacing>
         <IconButton aria-label="like">
           <ThumbUpIcon />
@@ -65,7 +119,7 @@ const ForumPage = () => {
         <IconButton aria-label="comment">
           <CommentIcon />
         </IconButton>
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 };
