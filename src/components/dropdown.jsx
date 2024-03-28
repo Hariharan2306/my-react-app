@@ -39,6 +39,9 @@ export default function DropDown(props) {
       case "add-bus":
         navigate("/add-bus");
         break;
+      case "add-mechanics":
+        navigate("/add-mechanics");
+        break;
       default:
         break;
     }

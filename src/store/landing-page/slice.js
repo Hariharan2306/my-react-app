@@ -4,6 +4,7 @@ const initialState = {
   approvalRequesters: [],
   successMessage: "",
   appImages: [],
+  successMechanic: "",
 };
 
 const landingPageSlice = createSlice({
@@ -22,6 +23,15 @@ const landingPageSlice = createSlice({
     getAppImages: (state, action) => {
       state.appImages = action.payload;
     },
+    getAllMechanicsSuccess: (state, action) => {
+      state.allMechanics = action.payload;
+    },
+    getAllMechanicsFailure: (state, action) => {
+      state.failureMessage = action.payload;
+    },
+    successPostMechanic: (state, action) => {
+      state.successMechanic = action.payload;
+    },
   },
 });
 
@@ -30,5 +40,8 @@ export const {
   postImageSuccess,
   postImageFailure,
   getAppImages,
+  getAllMechanicsSuccess,
+  getAllMechanicsFailure,
+  successPostMechanic,
 } = landingPageSlice.actions;
 export default landingPageSlice.reducer;
