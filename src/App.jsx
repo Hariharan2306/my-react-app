@@ -1,5 +1,10 @@
 import { Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import LandigPage from "./landing-page/LandigPage";
 import ForumPage from "./landing-page/ForumPage";
 import HomePage from "./landing-page/HomePage";
@@ -14,21 +19,35 @@ import About from "./landing-page/About";
 function App() {
   return (
     <Router>
-      <Suspense>
-        <LandigPage />
+      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/view-bus" element={<ViewBus />} />
-          <Route path="/travel-forum" element={<ForumPage />} />
-          <Route path="/drivers" element={<Drivers />} />
-          <Route path="/landing-page" element={<HomePage />} />
-          <Route path="/new-landing-page" element={<NewLandingPage />} />
-          <Route path="/mechanics" element={<Mechanics />} />
-          <Route path="/add-bus" element={<AddBus />} />
-          <Route path="/about" element={<About />} />
+          {/* LandigPage is not shown for /login route */}
+          <Route path="/*" element={<MainContent />} />
         </Routes>
       </Suspense>
     </Router>
+  );
+}
+
+function MainContent() {
+  const location = useLocation();
+  const isLoginPage = location.pathname === "/login";
+
+  return (
+    <>
+      {!isLoginPage && <LandigPage />}
+      <Routes>
+        <Route path="/view-bus" element={<ViewBus />} />
+        <Route path="/travel-forum" element={<ForumPage />} />
+        <Route path="/drivers" element={<Drivers />} />
+        <Route path="/landing-page" element={<HomePage />} />
+        <Route path="/new-landing-page" element={<NewLandingPage />} />
+        <Route path="/mechanics" element={<Mechanics />} />
+        <Route path="/add-bus" element={<AddBus />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </>
   );
 }
 
