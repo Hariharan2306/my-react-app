@@ -78,10 +78,17 @@ function Mechanics(props) {
     dispatch(getAllMechanics());
   }, []);
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", background: "white" }}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        background: "white",
+        padding: "70px 20px 20px",
+      }}
+    >
       {allMechanics?.map(({ name, age, sex, shopName, exprience }) => (
         <>
-          <Card sx={{ margin: "20px" }}>
+          <Card sx={{ margin: "20px", boxShadow: "5px 5px 13px -1px" }}>
             <Typography
               sx={{
                 textAlign: "center",
@@ -94,7 +101,7 @@ function Mechanics(props) {
             </Typography>
             <Card sx={{ width: "300px", height: "200px" }}>
               <img
-                src={driver}
+                src="https://media.istockphoto.com/id/1273264527/vector/hand-drawn-modern-man-avatar-profile-icon-user-flat-avatar-icon-sign-profile-male-symbol.jpg?s=170667a&w=0&k=20&c=jHJ7HHyrvw1tEeDCBEGEqKZja16wuuzEOCbpXe2sE20="
                 alt="img"
                 style={{ width: "300px", height: "200px", margin: "10px" }}
               />

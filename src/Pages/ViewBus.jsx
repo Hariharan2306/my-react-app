@@ -14,7 +14,14 @@ const ViewBus = () => {
   }, []);
   console.log(state, "selectedData");
   return (
-    <div>
+    <div
+      style={{
+        height: "100vh",
+        margin: "0 auto",
+        width: "50%",
+        paddingTop: "100px",
+      }}
+    >
       <Card
         sx={{
           //   width: "80%",
@@ -32,9 +39,13 @@ const ViewBus = () => {
           style={{ width: "100%", height: "300px" }}
         />
       </Card>
-      <div>Operator Name : {selectedData.operatorName}</div>
-      <div>Number of Seats: {selectedData.noOfSeats}</div>
-      Rating: {selectedData.rating}
+      <div style={{ color: "black" }}>
+        Operator Name : {selectedData.operatorName}
+      </div>
+      <div style={{ color: "black" }}>
+        Number of Seats: {selectedData.noOfSeats}
+      </div>
+      <div style={{ color: "black" }}>Rating: {selectedData.rating}</div>
     </div>
   );
 };

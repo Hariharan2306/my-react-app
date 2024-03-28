@@ -50,10 +50,10 @@ const AddMechanic = () => {
         style={{
           backgroundColor: "white",
           height: "100vh",
-          padding: "20px",
+          padding: "100px 40px 25px",
         }}
       >
-        <span style={{ marginTop: "10px" }}>
+        <span style={{ marginTop: "10px", marginRight: "20px" }}>
           <TextField
             id="outlined-basic"
             variant="outlined"
@@ -62,7 +62,7 @@ const AddMechanic = () => {
             onChange={handleChange("mechanicName")}
           />
         </span>
-        <span>
+        <span style={{ marginRight: "20px" }}>
           <TextField
             id="outlined-basic"
             variant="outlined"
@@ -71,7 +71,7 @@ const AddMechanic = () => {
             onChange={handleChange("age")}
           />
         </span>
-        <span>
+        <span style={{ marginRight: "20px" }}>
           <TextField
             id="outlined-basic"
             variant="outlined"
@@ -80,7 +80,7 @@ const AddMechanic = () => {
             onChange={handleChange("sex")}
           />
         </span>
-        <span>
+        <span style={{ marginRight: "20px" }}>
           <TextField
             id="outlined-basic"
             variant="outlined"

@@ -1,4 +1,4 @@
-import { ButtonBase, Card, Divider, Typography } from "@mui/material";
+import { Button, ButtonBase, Card, Divider, Typography } from "@mui/material";
 import homePageImage from "../assets/homePageImage.png";
 import driver from "../assets/drivers1.png";
 import bus from "../assets/bus.jpg";
@@ -41,8 +41,9 @@ function NewLandingPage(props) {
             color: "white",
             fontWeight: "bold",
             // border: "3px solid #f1f1f1",
-            position: "absolute",
-            top: "50%",
+            position: "relative",
+            // top: "30%",
+            top: "-241px",
             left: "50%",
             transform: "translate(-50%, -50%)",
             zIndex: 2,
@@ -77,19 +78,22 @@ function NewLandingPage(props) {
                   className={classes.imgWrapper}
                 />
               </Card>
-              <Typography
-                sx={{
-                  position: "absolute",
-                  left: "15%",
-                  fontSize: "22px",
-                  fontWeight: "900",
-                  marginTop: "155px",
-                  color: "black",
-                }}
-              >
-                Drivers
-              </Typography>
             </ButtonBase>
+            <Typography
+              sx={{
+                fontSize: "22px",
+                fontWeight: "900",
+                color: "black",
+                textAlign: "center",
+                marginTop: "10px",
+              }}
+            >
+              Drivers
+            </Typography>
+            <p style={{ margin: "32px" }}>
+              Find our professional drivers and choose yours based on star
+              ratings.
+            </p>
           </Card>
           <Card
             sx={{ width: "310px", height: "400px" }}
@@ -107,19 +111,22 @@ function NewLandingPage(props) {
                   className={classes.imgWrapper}
                 />
               </Card>
-              <Typography
-                sx={{
-                  position: "relative",
-                  top: "75px",
-                  right: "97px",
-                  fontSize: "22px",
-                  fontWeight: "900",
-                  color: "black",
-                }}
-              >
-                Vehicle
-              </Typography>
             </ButtonBase>
+            <Typography
+              sx={{
+                fontSize: "22px",
+                fontWeight: "900",
+                color: "black",
+                textAlign: "center",
+                marginTop: "10px",
+              }}
+            >
+              Vehicle
+            </Typography>
+            <p style={{ margin: "32px" }}>
+              Find our professional drivers and choose yours based on star
+              ratings.
+            </p>
           </Card>
           <Card
             sx={{ width: "310px", height: "400px" }}
@@ -137,19 +144,22 @@ function NewLandingPage(props) {
                   style={{ width: "121px", height: "128px" }}
                 />
               </Card>
-              <Typography
-                sx={{
-                  position: "relative",
-                  top: "75px",
-                  right: "108px",
-                  fontSize: "22px",
-                  fontWeight: "900",
-                  color: "black",
-                }}
-              >
-                Mechanics
-              </Typography>
             </ButtonBase>
+            <Typography
+              sx={{
+                fontSize: "22px",
+                fontWeight: "900",
+                color: "black",
+                textAlign: "center",
+                marginTop: "10px",
+              }}
+            >
+              Mechanics
+            </Typography>
+            <p style={{ margin: "32px" }}>
+              Find our professional drivers and choose yours based on star
+              ratings.
+            </p>
           </Card>
         </div>
         <Divider sx={{ margin: "40px 40px 40px 40px", width: "94%" }} />

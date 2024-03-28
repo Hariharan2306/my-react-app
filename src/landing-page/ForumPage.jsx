@@ -18,12 +18,12 @@ const forum = [
       "Book your tickets now to explore the stunning scenaries of Delhi",
   },
   {
-    name: "",
+    name: "Sachin",
     reson: "is Seeking Help in",
     goingTo: "Kerala",
     slate: "",
     img: kawasaki,
-    description: "",
+    description: " We are there for you all day all week.",
   },
 ];
 
@@ -92,7 +92,7 @@ const ForumPage = () => {
               </CardActions>
             </div>
             <div style={{ margin: "auto", padding: "95px" }}>
-              <p>{item.description}</p>
+              <p style={{ fontSize: "30px" }}>{item.description}</p>
             </div>
           </Card>
         </>
