@@ -8,10 +8,11 @@ const ViewBus = () => {
   const [selectedData, setSelectedData] = useState({});
 
   useEffect(() => {
-    if (!isEmpty(state)) {
+    if (!isEmpty(state) && !isEmpty(state.operatorName)) {
       setSelectedData(state);
     }
   }, []);
+  console.log(state, "selectedData");
   return (
     <div>
       <Card

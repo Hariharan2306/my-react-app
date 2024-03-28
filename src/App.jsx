@@ -8,6 +8,7 @@ import Login from "./LoginPage/Login";
 import ViewBus from "./Pages/ViewBus";
 import NewLandingPage from "./landing-page/NewLandingPage";
 import Mechanics from "./landing-page/MachanicsList";
+import AddBus from "./Pages/AddBus";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/landing-page" element={<HomePage />} />
           <Route path="/new-landing-page" element={<NewLandingPage />} />
           <Route path="/mechanics" element={<Mechanics />} />
+          <Route path="/add-bus" element={<AddBus />} />
         </Routes>
       </Suspense>
     </Router>
