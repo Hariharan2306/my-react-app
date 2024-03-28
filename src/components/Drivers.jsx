@@ -12,7 +12,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
-import { getAllDrivers } from "../API/Drivers/thunk";
+import { getAllDrivers, onBoardDriverThunk } from "../API/Drivers/thunk";
 import { useDispatch, useSelector } from "react-redux";
 import { allDriversSelector } from "../API/Drivers/selector";
 
@@ -23,9 +23,29 @@ export default function Drivers() {
 
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const [busBuddyId, setBusBuddyId] = React.useState(null);
-  const [busRegdId, setBusRegdId] = React.useState(null);
+  const initialState = {
+    busBuddyId: "",
+    busId: "",
+    travelDate: "",
+    boardingPoint: "",
+  };
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "SET_BUS_BUDDY_ID":
+        return { ...state, busBuddyId: action.payload };
+      case "SET_BUS_ID":
+        return { ...state, busId: action.payload };
+      case "SET_TRAVEL_DATE":
+        return { ...state, travelDate: action.payload };
+      case "SET_BOARDING_POINT":
+        return { ...state, boardingPoint: action.payload };
+      default:
+        return state;
+    }
+  };
+  const [state, dispatchReducer] = React.useReducer(reducer, initialState);
+
   const [date, setDate] = React.useState("");
-  const [boarding, setBoarding] = React.useState("");
 
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     "& .MuiDialogContent-root": {
@@ -122,7 +142,17 @@ export default function Drivers() {
   React.useEffect(() => {
     dispatch(getAllDrivers());
   }, [dataView]);
-  console.log(allDrivers, "allDrivers");
+  const onBoardDriver = () => {
+    const data = {
+      busBuddyId: state.busBuddyId,
+      travelDate: state.travelDate,
+      busId: state.busId,
+      boardingPoint: state.boardingPoint,
+    };
+    dispatch(onBoardDriverThunk(data));
+    setDialogOpen(false);
+  };
+
   return (
     <div style={{ margin: "20px" }}>
       <div className="scrollable-container">
@@ -197,32 +227,71 @@ export default function Drivers() {
                 <Box sx={{ padding: "30px", display: "flex" }}>
                   <div>
                     <Box sx={{ margin: "15px" }}>
-                      <TextField id="outlined-basic" variant="outlined" />
+                      <TextField
+                        id="outlined-basic"
+                        variant="outlined"
+                        value={state.busBuddyId}
+                        onChange={(e) =>
+                          dispatchReducer({
+                            type: "SET_BUS_BUDDY_ID",
+                            payload: e.target.value,
+                          })
+                        }
+                      />
                       <Typography gutterBottom>Bus Buddy's Bus ID</Typography>
                     </Box>
 
                     <Box sx={{ margin: "15px" }}>
-                      <TextField id="outlined-basic" variant="outlined" />
+                      <TextField
+                        id="outlined-basic"
+                        variant="outlined"
+                        value={state.busId}
+                        onChange={(e) =>
+                          dispatchReducer({
+                            type: "SET_BUS_ID",
+                            payload: e.target.value,
+                          })
+                        }
+                      />
                       <Typography gutterBottom>Registered Bus ID</Typography>
                     </Box>
                   </div>
 
                   <div>
                     <Box sx={{ margin: "15px" }}>
-                      <TextField id="outlined-basic" variant="outlined" />
+                      <TextField
+                        id="outlined-basic"
+                        variant="outlined"
+                        value={state.travelDate}
+                        onChange={(e) =>
+                          dispatchReducer({
+                            type: "SET_TRAVEL_DATE",
+                            payload: e.target.value,
+                          })
+                        }
+                      />
                       <Typography gutterBottom>Date of Travel</Typography>
                     </Box>
                     <Box sx={{ margin: "15px" }}>
-                      <TextField id="outlined-basic" variant="outlined" />
-                      <Typography gutterBottom>Date of Travel</Typography>
+                      <TextField
+                        id="outlined-basic"
+                        variant="outlined"
+                        value={state.boardingPoint}
+                        onChange={(e) =>
+                          dispatchReducer({
+                            type: "SET_BOARDING_POINT",
+                            payload: e.target.value,
+                          })
+                        }
+                        v
+                      />
+                      <Typography gutterBottom>Bus Boarding Point</Typography>
                     </Box>
                   </div>
                 </Box>
               </DialogContent>
               <DialogActions>
-                <Button autoFocus onClick={() => setDialogOpen(false)}>
-                  Save changes
-                </Button>
+                <Button onClick={() => onBoardDriver()}>Save changes</Button>
               </DialogActions>
             </BootstrapDialog>
           </div>
