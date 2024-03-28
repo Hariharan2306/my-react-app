@@ -62,9 +62,9 @@ const ViewBus = () => {
         }}
       >
         {toastOpen && (
-          <Alert
+          <Alert 
             severity="success"
-            sx={{ position: "absolute", width: "100%" }}
+            sx={{ position: "absolute", width: "100%" ,zIndex: 10000 }}
             onClose={() => setToastOpen(false)}
           >
             {"Your Request has been accepted, will get back to you in a while"}

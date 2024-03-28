@@ -1,0 +1,13 @@
+.my-carousel {
+  width: 360px;
+  height: 420px;
+}
+.firstChild {
+  font-weight: 700;
+  font-size: 34px;
+  color: "#444A5C";
+}
+.otherChild {
+  font-size: 18px;
+  font-weight: bold;
+}

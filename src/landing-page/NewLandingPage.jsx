@@ -1,13 +1,14 @@
-import { ButtonBase, Card, Typography } from "@mui/material";
-import logo from "../assets/img5.jpg";
+import { ButtonBase, Card, Divider, Typography } from "@mui/material";
+import homePageImage from "../assets/homePageImage.png";
 import driver from "../assets/drivers1.png";
 import bus from "../assets/bus.jpg";
 import machanics from "../assets/machanics.jpg";
 import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router";
+import AutoMovingImages from "./AutoMovingImages";
 
 const useStyles = makeStyles(() => ({
-  imageSize: { width: "100%", height: "546px", WebkitFilter: "blur(2px)" },
+  imageSize: { width: "100%", height: "590px" },
   imgWrapper: {
     width: "120px",
     height: "117px",
@@ -33,87 +34,126 @@ function NewLandingPage(props) {
   return (
     <>
       <Card>
-        <img src={logo} alt="imag5" className={classes.imageSize} />
+        <img src={homePageImage} alt="imag5" className={classes.imageSize} />
         <div
           style={{
             backgroundColor: "rgba(0,0,0, 0.4)",
             color: "white",
             fontWeight: "bold",
-            border: "3px solid #f1f1f1",
+            // border: "3px solid #f1f1f1",
             position: "absolute",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
             zIndex: 2,
-            width: "80%",
+            width: "38%",
             padding: "20px",
             textAlign: "center",
-            display: "flex",
-            justifyContent: "space-around",
-            height: "150px",
+
+            height: "151px",
           }}
         >
-          <div className={classes.imgWrapper}>
-            <ButtonBase onClick={handleIsDriveList}>
+          <h1>Travel,Explore,Hiring...</h1>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            marginTop: "35px",
+          }}
+        >
+          <Card
+            sx={{ width: "310px", height: "400px" }}
+            className={classes.imgWrapper}
+          >
+            <ButtonBase
+              sx={{ margin: "26px 92px 0 92px" }}
+              onClick={handleIsDriveList}
+            >
               <Card>
-                <img src={driver} alt="img" className={classes.imgWrapper} />
-                <Typography
-                  sx={{
-                    position: "absolute",
-                    left: "15%",
-                    fontSize: "22px",
-                    fontWeight: "900",
-                    color: "white",
-                  }}
-                >
-                  Drivers
-                </Typography>
-              </Card>
-            </ButtonBase>
-          </div>
-          <div className={classes.imgWrapper}>
-            <ButtonBase onClick={handleVehicleList}>
-              <Card className={classes.imgWrapper}>
                 <img
-                  onClick={navigate("/landing-page")}
-                  src={bus}
+                  src="https://www.pngitem.com/pimgs/m/24-243048_png-file-svg-driver-icon-vector-png-transparent.png"
                   alt="img"
                   className={classes.imgWrapper}
                 />
-                <Typography
-                  sx={{
-                    position: "absolute",
-                    left: "0",
-                    right: "0",
-                    fontSize: "22px",
-                    fontWeight: "900",
-                    color: "white",
-                  }}
-                >
-                  Vehicle
-                </Typography>
               </Card>
+              <Typography
+                sx={{
+                  position: "absolute",
+                  left: "15%",
+                  fontSize: "22px",
+                  fontWeight: "900",
+                  marginTop: "155px",
+                  color: "black",
+                }}
+              >
+                Drivers
+              </Typography>
             </ButtonBase>
-          </div>
-          <div className={classes.imgWrapper}>
-            <ButtonBase onClick={handleIsMachanicsList}>
+          </Card>
+          <Card
+            sx={{ width: "310px", height: "400px" }}
+            className={classes.imgWrapper}
+          >
+            <ButtonBase
+              sx={{ margin: "26px 92px 0 92px" }}
+              onClick={handleVehicleList}
+            >
               <Card className={classes.imgWrapper}>
-                <img src={machanics} alt="img" className={classes.imgWrapper} />
-                <Typography
-                  sx={{
-                    position: "absolute",
-                    right: "13%",
-                    fontSize: "22px",
-                    fontWeight: "900",
-                    color: "white",
-                  }}
-                >
-                  Mechanics
-                </Typography>
+                <img
+                  onClick={navigate("/landing-page")}
+                  src="https://img.freepik.com/premium-vector/minimal-abstract-logo-bus-icon-school-bus-vector-silhouette-isolated-design-template_653669-2867.jpg"
+                  alt="img"
+                  className={classes.imgWrapper}
+                />
               </Card>
+              <Typography
+                sx={{
+                  position: "relative",
+                  top: "75px",
+                  right: "97px",
+                  fontSize: "22px",
+                  fontWeight: "900",
+                  color: "black",
+                }}
+              >
+                Vehicle
+              </Typography>
             </ButtonBase>
-          </div>
+          </Card>
+          <Card
+            sx={{ width: "310px", height: "400px" }}
+            className={classes.imgWrapper}
+          >
+            <ButtonBase
+              sx={{ margin: "26px 92px 0 92px" }}
+              onClick={handleIsMachanicsList}
+            >
+              <Card className={classes.imgWrapper}>
+                <img
+                  src="https://www.autoserviceworld.com/wp-content/uploads/2019/09/mechanic-icon-mechanic-on-duty-vector-20322896.jpg"
+                  alt="img"
+                  className={classes.imgWrapper}
+                  style={{ width: "121px", height: "128px" }}
+                />
+              </Card>
+              <Typography
+                sx={{
+                  position: "relative",
+                  top: "75px",
+                  right: "108px",
+                  fontSize: "22px",
+                  fontWeight: "900",
+                  color: "black",
+                }}
+              >
+                Mechanics
+              </Typography>
+            </ButtonBase>
+          </Card>
         </div>
+        <Divider sx={{ margin: "40px 40px 40px 40px", width: "94%" }} />
+        <AutoMovingImages />
       </Card>
     </>
   );

@@ -59,7 +59,7 @@ const HomePage = (props) => {
         style={{
           // height: "100vh",
           borderRadius: 0,
-          padding: "10px 20px 10px 20px",
+          padding: "70px 20px 10px 20px",
         }}
       >
         {allImages?.map((item) => {

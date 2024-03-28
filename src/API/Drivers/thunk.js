@@ -27,3 +27,15 @@ export const getAllDrivers = () => async (dispatch) => {
     dispatch(fetchDriversFailure(error));
   }
 };
+
+export const onBoardDriverThunk = (data) => async (dispatch) => {
+  try {
+    const response = await api.post("/driver/on-board-driver", data);
+    if (response.status === 200) {
+      dispatch(getAllDrivers());
+      return response.data;
+    }
+  } catch (error) {
+    dispatch(fetchDriversFailure(error));
+  }
+};
