@@ -33,7 +33,7 @@ export default function DropDown(props) {
       case "drivers":
         navigate("/drivers");
         break;
-      case "":
+      case "landing-page":
         navigate("landing-page");
         break;
       case "add-bus":
