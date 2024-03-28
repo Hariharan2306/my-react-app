@@ -35,7 +35,7 @@ const LandigPage = () => {
               <a href="/new-landing-page">Home</a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a href="/about">About</a>
             </li>
             <li>
               <DropDown options={servicesDropDown} />

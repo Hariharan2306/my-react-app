@@ -72,7 +72,7 @@ const AddBus = () => {
     navigate("/new-landing-page");
   };
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div style={{ backgroundColor: "white", height: "100vh" }}>
       <form>
         <Card>
           <CardHeader title="Upload Pictures" />
