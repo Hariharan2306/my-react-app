@@ -32,7 +32,7 @@ const ViewBus = () => {
           style={{ width: "100%", height: "300px" }}
         />
       </Card>
-      Operator Name : {selectedData.operatorName}
+      <div>Operator Name : {selectedData.operatorName}</div>
       <div>Number of Seats: {selectedData.noOfSeats}</div>
       Rating: {selectedData.rating}
     </div>
