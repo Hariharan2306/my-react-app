@@ -74,6 +74,7 @@ function Mechanics(props) {
         display: "flex",
         flexWrap: "wrap",
         background: "white",
+        padding: "70px 20px",
       }}
     >
       {machanicsList.map(

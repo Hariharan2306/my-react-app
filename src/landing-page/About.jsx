@@ -1,6 +1,12 @@
 const About = () => {
   return (
-    <div style={{ height: "100vh", backgroundColor: "white" }}>
+    <div
+      style={{
+        height: "100vh",
+        backgroundColor: "white",
+        padding: "79px 42px 0 41px",
+      }}
+    >
       <h1 style={{ color: "black", backgroundColor: "white" }}>
         About Us - Bus Buddies
       </h1>

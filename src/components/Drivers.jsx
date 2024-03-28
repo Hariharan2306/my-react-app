@@ -154,7 +154,7 @@ export default function Drivers() {
   };
 
   return (
-    <div style={{ margin: "20px" }}>
+    <div style={{ margin: "20px", padding: "70px 20px 20px" }}>
       <div className="scrollable-container">
         <div className="scrollable-content">
           {randomNames.map((e, index) => (

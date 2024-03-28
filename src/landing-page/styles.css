@@ -8,7 +8,7 @@
 
 .images-container {
   display: flex;
-  width: 90%;
+  width: 78%;
   overflow: scroll;
   scroll-behavior: smooth;
   transition: scroll 0.3s ease-in-out;

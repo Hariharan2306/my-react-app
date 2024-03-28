@@ -72,7 +72,13 @@ const AddBus = () => {
     navigate("/new-landing-page");
   };
   return (
-    <div style={{ backgroundColor: "white", height: "100vh" }}>
+    <div
+      style={{
+        backgroundColor: "white",
+        height: "100vh",
+        padding: " 79px 42px 0 41px",
+      }}
+    >
       <form>
         <Card>
           <CardHeader title="Upload Pictures" />
@@ -95,7 +101,7 @@ const AddBus = () => {
       <div
         style={{
           backgroundColor: "white",
-          padding: "10px 20px 10px 20px",
+          padding: "70px 20px 10px 20px",
           marginTop: "20px",
         }}
       >

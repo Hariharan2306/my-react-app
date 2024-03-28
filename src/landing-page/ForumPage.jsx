@@ -32,7 +32,7 @@ const ForumPage = () => {
     <Card
       style={{
         borderRadius: 0,
-        padding: "29px 66px",
+        padding: " 86px 66px 29px",
       }}
     >
       <div style={{ fontSize: 20, fontWeight: "bold", color: "#4267B2" }}>
