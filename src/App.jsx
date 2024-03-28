@@ -9,6 +9,7 @@ import ViewBus from "./Pages/ViewBus";
 import NewLandingPage from "./landing-page/NewLandingPage";
 import Mechanics from "./landing-page/MachanicsList";
 import AddBus from "./Pages/AddBus";
+import About from "./landing-page/About";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/new-landing-page" element={<NewLandingPage />} />
           <Route path="/mechanics" element={<Mechanics />} />
           <Route path="/add-bus" element={<AddBus />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Suspense>
     </Router>

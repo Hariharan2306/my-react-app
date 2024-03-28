@@ -36,6 +36,9 @@ export default function DropDown(props) {
       case "":
         navigate("landing-page");
         break;
+      case "add-bus":
+        navigate("/add-bus");
+        break;
       default:
         break;
     }

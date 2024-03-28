@@ -12,9 +12,15 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
+import { getAllDrivers } from "../API/Drivers/thunk";
+import { useDispatch, useSelector } from "react-redux";
+import { allDriversSelector } from "../API/Drivers/selector";
 
 export default function Drivers() {
   const [dataView, setDataView] = React.useState(0);
+  const dispatch = useDispatch();
+  const allDrivers = useSelector(allDriversSelector);
+
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const [busBuddyId, setBusBuddyId] = React.useState(null);
   const [busRegdId, setBusRegdId] = React.useState(null);
@@ -113,6 +119,10 @@ export default function Drivers() {
     },
   ];
 
+  React.useEffect(() => {
+    dispatch(getAllDrivers());
+  }, [dataView]);
+  console.log(allDrivers, "allDrivers");
   return (
     <div style={{ margin: "20px" }}>
       <div className="scrollable-container">
