@@ -5,6 +5,7 @@ import {
   CardActions,
   CardContent,
   CardHeader,
+  CircularProgress,
   Fab,
   FormGroup,
   Grid,
@@ -40,7 +41,7 @@ const HomePage = (props) => {
     }
   }, [success]);
 
-  useEffect(async () => {
+  useEffect(() => {
     dispatch(getImages());
   }, []);
 
@@ -52,6 +53,8 @@ const HomePage = (props) => {
 
   return (
     <>
+      {allImages?.length === 0 && <CircularProgress color="inherit" />}
+
       <Card
         style={{
           // height: "100vh",

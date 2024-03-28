@@ -20,7 +20,9 @@ const useStyles = makeStyles(() => ({
 }));
 function NewLandingPage(props) {
   const navigate = useNavigate();
-  const handleIsDriveList = () => {};
+  const handleIsDriveList = () => {
+    navigate("/drivers");
+  };
   const handleIsMachanicsList = () => {
     navigate("/mechanics");
   };
