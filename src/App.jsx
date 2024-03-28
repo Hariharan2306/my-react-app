@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandigPage from "./landing-page/LandigPage";
 import ForumPage from "./landing-page/ForumPage";
@@ -9,6 +9,12 @@ import NewLandingPage from "./landing-page/NewLandingPage";
 import Mechanics from "./landing-page/MachanicsList";
 
 function App() {
+  useEffect(() => {
+    document.body.style.backgroundColor = "#f0f0f0";
+    return () => {
+      document.body.style.backgroundColor = "";
+    };
+  }, []);
   return (
     <Router>
       <Suspense>

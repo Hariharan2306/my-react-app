@@ -33,7 +33,7 @@ const LandigPage = () => {
           </div>
           <ul className="nav-links">
             <li>
-              <a href="/landing-page">Home</a>
+              <a href="/new-landing-page">Home</a>
             </li>
             <li>
               <a href="#">About</a>

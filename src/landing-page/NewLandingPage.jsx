@@ -5,6 +5,7 @@ import bus from "../assets/bus.jpg";
 import machanics from "../assets/machanics.jpg";
 import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router";
+import AutoMovingImages from "./AutoMovingImages";
 
 const useStyles = makeStyles(() => ({
   imageSize: { width: "100%", height: "546px", WebkitFilter: "blur(2px)" },
@@ -91,7 +92,12 @@ function NewLandingPage(props) {
           <div className={classes.imgWrapper}>
             <ButtonBase onClick={handleIsMachanicsList}>
               <Card className={classes.imgWrapper}>
-                <img src={machanics} alt="img" className={classes.imgWrapper} />
+                <img
+                  src={machanics}
+                  alt="img"
+                  className={classes.imgWrapper}
+                  style={{ width: "121px", height: "128px" }}
+                />
                 <Typography
                   sx={{
                     position: "absolute",
@@ -107,6 +113,7 @@ function NewLandingPage(props) {
             </ButtonBase>
           </div>
         </div>
+        <AutoMovingImages />
       </Card>
     </>
   );
