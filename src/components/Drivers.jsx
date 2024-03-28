@@ -1,11 +1,35 @@
 import * as React from "react";
 import "../styles/scroll-box.css";
-import { Paper } from "@mui/material";
+import { Paper, TextField } from "@mui/material";
 import { get } from "lodash";
+import { Button } from "@mui/base";
+import { styled } from "@mui/material/styles";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import Typography from "@mui/material/Typography";
+import { Box } from "@mui/system";
 
 export default function Drivers() {
-  const drivers = ["abc", "xyz", "pqr"];
   const [dataView, setDataView] = React.useState(0);
+  const [dialogOpen, setDialogOpen] = React.useState(false);
+  const [busBuddyId, setBusBuddyId] = React.useState(null);
+  const [busRegdId, setBusRegdId] = React.useState(null);
+  const [date, setDate] = React.useState("");
+  const [boarding, setBoarding] = React.useState("");
+
+  const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+    "& .MuiDialogContent-root": {
+      padding: theme.spacing(2),
+    },
+    "& .MuiDialogActions-root": {
+      padding: theme.spacing(1),
+    },
+  }));
+
   const randomNames = [
     {
       name: "Alice",
@@ -131,6 +155,66 @@ export default function Drivers() {
                 {randomNames[dataView].starRating}
               </p>
             </p>
+            <Button
+              variant="outlined"
+              sx={{ width: "20px !important" }}
+              onClick={() => setDialogOpen(true)}
+            >
+              Hire me
+            </Button>
+
+            <BootstrapDialog
+              onClose={() => setDialogOpen(false)}
+              aria-labelledby="customized-dialog-title"
+              open={dialogOpen}
+            >
+              <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
+                Hirer Details
+              </DialogTitle>
+              <IconButton
+                aria-label="close"
+                onClick={() => setDialogOpen(false)}
+                sx={{
+                  position: "absolute",
+                  right: 8,
+                  top: 8,
+                  color: (theme) => theme.palette.grey[500],
+                }}
+              >
+                <CloseIcon />
+              </IconButton>
+              <DialogContent dividers>
+                <Box sx={{ padding: "30px", display: "flex" }}>
+                  <div>
+                    <Box sx={{ margin: "15px" }}>
+                      <TextField id="outlined-basic" variant="outlined" />
+                      <Typography gutterBottom>Bus Buddy's Bus ID</Typography>
+                    </Box>
+
+                    <Box sx={{ margin: "15px" }}>
+                      <TextField id="outlined-basic" variant="outlined" />
+                      <Typography gutterBottom>Registered Bus ID</Typography>
+                    </Box>
+                  </div>
+
+                  <div>
+                    <Box sx={{ margin: "15px" }}>
+                      <TextField id="outlined-basic" variant="outlined" />
+                      <Typography gutterBottom>Date of Travel</Typography>
+                    </Box>
+                    <Box sx={{ margin: "15px" }}>
+                      <TextField id="outlined-basic" variant="outlined" />
+                      <Typography gutterBottom>Date of Travel</Typography>
+                    </Box>
+                  </div>
+                </Box>
+              </DialogContent>
+              <DialogActions>
+                <Button autoFocus onClick={() => setDialogOpen(false)}>
+                  Save changes
+                </Button>
+              </DialogActions>
+            </BootstrapDialog>
           </div>
         </Paper>
       </div>
