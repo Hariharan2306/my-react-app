@@ -8,6 +8,8 @@ import {
   Fab,
   FormGroup,
   Grid,
+  InputLabel,
+  TextField,
 } from "@mui/material";
 import get from "lodash/get";
 import FileUpload from "../Pages/FileUpload";
@@ -23,6 +25,9 @@ const HomePage = (props) => {
   const navigate = useNavigate();
   const success = useSelector(isImagePosted);
   const [allBusImages, setAllBusImages] = useState([]);
+  const [operatorName, setOperatorName] = useState("");
+  const [noOfSeats, setNoOfSeats] = useState(0);
+  const [rating, setRating] = useState(0);
   const allImages = useSelector(allAppImages);
 
   const onCancel = () => {
@@ -58,9 +63,23 @@ const HomePage = (props) => {
 
   const submitImage = (event) => {
     event.preventDefault();
-    dispatch(postImage({ base64Data, fileName, operatorName: fileName }));
+    dispatch(
+      postImage({ base64Data, fileName, operatorName, noOfSeats, rating })
+    );
   };
   console.log(allImages, "allImages");
+  const handleChange = (event) => {
+    const value = get(event, "target.value", "");
+    setOperatorName(value);
+  };
+  const handleSeatsChange = (event) => {
+    const value = get(event, "target.value", "");
+    setNoOfSeats(value);
+  };
+  const handleRatingChange = (event) => {
+    const value = get(event, "target.value", "");
+    setRating(value);
+  };
   return (
     <>
       <Card
@@ -74,6 +93,7 @@ const HomePage = (props) => {
           return (
             <Card
               sx={{ width: "30%", display: " inline-grid", margin: "15px" }}
+              onClick={() => navigate("/view-bus", { state: item })}
             >
               <Card
                 sx={{
@@ -92,7 +112,9 @@ const HomePage = (props) => {
                   style={{ width: "100%", height: "300px" }}
                 />
               </Card>
-              <p>Hellow</p>
+              Operator Name : {item.operatorName}
+              <div>Number of Seats: {item.noOfSeats}</div>
+              Rating: {item.rating}
             </Card>
           );
         })}
@@ -138,6 +160,33 @@ const HomePage = (props) => {
             </CardActions>
           </Card>
         </form>
+        <InputLabel>Operator Name</InputLabel>
+        <TextField
+          id="outlined-basic"
+          helperText={"Please Enter Operator Name"}
+          className="inputStyle"
+          value={operatorName}
+          name="applicationValue"
+          onChange={handleChange}
+        />
+        <InputLabel>No of Seats</InputLabel>
+        <TextField
+          id="outlined-basic"
+          helperText={"Enter the No of seats"}
+          className="inputStyle"
+          value={noOfSeats}
+          name="applicationValue"
+          onChange={handleSeatsChange}
+        />
+        <InputLabel>Ratings</InputLabel>
+        <TextField
+          id="outlined-basic"
+          helperText={"Enter the Ratings"}
+          className="inputStyle"
+          value={rating}
+          name="applicationValue"
+          onChange={handleRatingChange}
+        />
       </Card>
     </>
   );
