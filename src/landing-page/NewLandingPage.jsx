@@ -21,7 +21,9 @@ const useStyles = makeStyles(() => ({
 }));
 function NewLandingPage(props) {
   const navigate = useNavigate();
-  const handleIsDriveList = () => {};
+  const handleIsDriveList = () => {
+    navigate("/drivers");
+  };
   const handleIsMachanicsList = () => {
     navigate("/mechanics");
   };
@@ -73,7 +75,12 @@ function NewLandingPage(props) {
           <div className={classes.imgWrapper}>
             <ButtonBase onClick={handleVehicleList}>
               <Card className={classes.imgWrapper}>
-                <img src={bus} alt="img" className={classes.imgWrapper} />
+                <img
+                  onClick={navigate("/landing-page")}
+                  src={bus}
+                  alt="img"
+                  className={classes.imgWrapper}
+                />
                 <Typography
                   sx={{
                     position: "absolute",

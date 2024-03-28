@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   response: "",
+  allDrivers: [],
 };
 
 const DriversSlice = createSlice({
@@ -17,9 +18,19 @@ const DriversSlice = createSlice({
     postDriversFailure: (state, action) => {
       state.error = action.payload;
     },
+    getDriversSuccess: (state, action) => {
+      state.allDrivers = action.payload;
+    },
+    fetchDriversFailure: (state, action) => {
+      state.error = action.payload;
+    },
   },
 });
 
-export const { fetchDriversRequest, fetchDriversSuccess, fetchDriversFailure } =
-  DriversSlice.actions;
+export const {
+  fetchDriversRequest,
+  fetchDriversSuccess,
+  getDriversSuccess,
+  fetchDriversFailure,
+} = DriversSlice.actions;
 export default DriversSlice.reducer;

@@ -12,7 +12,6 @@ const LandigPage = () => {
 
   useEffect(() => {
     dispatch(fetchApprovalRequesterData(1, 10, 1));
-    console.log("LandigPage");
   }, []);
   const RedNavbar = () => {
     const [showDropdown, setShowDropdown] = useState(false);
@@ -36,20 +35,8 @@ const LandigPage = () => {
               <a href="/new-landing-page">Home</a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a href="/about">About</a>
             </li>
-            {/* <li className="dropdown" onClick={toggleDropdown}>
-              <a href="#" className="dropbtn">
-                Services
-              </a>
-              {showDropdown && (
-                <div className="dropdown-content">
-                  <a href="#">Service 1</a>
-                  <a href="#">Service 2</a>
-                  <a href="#">Service 3</a>
-                </div>
-              )}
-            </li> */}
             <li>
               <DropDown options={servicesDropDown} />
             </li>
