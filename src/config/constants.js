@@ -9,6 +9,10 @@ export const servicesDropDown = [
     value: "add-bus",
   },
   {
+    label: "Add Mechanic",
+    value: "add-mechanics",
+  },
+  {
     label: "Drivers",
     value: "drivers",
   },

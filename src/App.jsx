@@ -15,6 +15,7 @@ import NewLandingPage from "./landing-page/NewLandingPage";
 import Mechanics from "./landing-page/MachanicsList";
 import AddBus from "./Pages/AddBus";
 import About from "./landing-page/About";
+import AddMechanic from "./landing-page/AddMechanic";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function MainContent() {
         <Route path="/mechanics" element={<Mechanics />} />
         <Route path="/add-bus" element={<AddBus />} />
         <Route path="/about" element={<About />} />
+        <Route path="/add-mechanics" element={<AddMechanic />} />
       </Routes>
     </>
   );
